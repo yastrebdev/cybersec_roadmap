@@ -1,0 +1,169 @@
+.coverage {
+  max-width: var(--max);
+  margin: auto;
+  padding: clamp(68px, 8vw, 115px) clamp(20px, 4vw, 70px);
+  border-bottom: 1px solid var(--line);
+}
+
+.coverage-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.coverage-head h2 {
+  margin: 13px 0 0;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: .94;
+  letter-spacing: -.06em;
+  text-transform: uppercase;
+}
+
+.coverage-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.coverage-head p strong { color: var(--ink); }
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+}
+
+.coverage-grid article {
+  min-height: 185px;
+  padding: 22px 22px 22px 0;
+  border-bottom: 1px solid var(--line);
+  margin-right: 22px;
+}
+
+.coverage-grid article:nth-child(4n) { margin-right: 0; }
+.coverage-grid article > span { color: var(--orange); font: 700 10px monospace; }
+.coverage-grid strong { display: block; margin: 40px 0 8px; font-size: 18px; }
+.coverage-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.scope-note {
+  margin-top: 30px;
+  padding: 18px;
+  background: var(--acid);
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 20px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.scope-note b {
+  font: 800 10px monospace;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.week-guide {
+  margin: 0 0 20px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  font: 700 9px monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.guide-header span:first-child { color: var(--orange); }
+.guide-header span:last-child { color: var(--muted); text-align: right; }
+
+.guide-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(220px, .65fr);
+}
+
+.guide-plan { padding: 18px; }
+.guide-plan > b,
+.mastery-box > b,
+.deliverable-box > b {
+  display: block;
+  margin-bottom: 12px;
+  font: 800 9px monospace;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+
+.guide-plan ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: plan;
+}
+
+.guide-plan li {
+  position: relative;
+  padding: 0 0 13px 34px;
+  counter-increment: plan;
+  color: #3d423b;
+  font-size: 12px;
+  line-height: 1.48;
+}
+
+.guide-plan li:last-child { padding-bottom: 0; }
+.guide-plan li::before {
+  content: counter(plan, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--orange);
+  font: 800 9px monospace;
+}
+
+.guide-side { border-left: 1px solid var(--line); }
+.mastery-box,
+.deliverable-box { padding: 18px; }
+.mastery-box { border-bottom: 1px solid var(--line); }
+.mastery-box ul { margin: 0; padding-left: 16px; }
+.mastery-box li { margin-top: 7px; color: var(--muted); font-size: 11px; line-height: 1.42; }
+.deliverable-box strong { display: block; font-size: 12px; line-height: 1.45; }
+.deliverable-box small { display: block; color: var(--muted); margin-top: 7px; line-height: 1.4; }
+
+.modern-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 6px;
+  background: var(--orange);
+  color: var(--ink);
+  font: 800 8px monospace;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  vertical-align: middle;
+}
+
+@media (max-width: 1000px) {
+  .coverage-grid { grid-template-columns: repeat(2, 1fr); }
+  .coverage-grid article:nth-child(4n) { margin-right: 22px; }
+  .coverage-grid article:nth-child(2n) { margin-right: 0; }
+}
+
+@media (max-width: 720px) {
+  .coverage-head,
+  .guide-columns,
+  .scope-note { grid-template-columns: 1fr; }
+  .coverage-head { gap: 20px; }
+  .coverage-grid { grid-template-columns: 1fr; }
+  .coverage-grid article,
+  .coverage-grid article:nth-child(2n),
+  .coverage-grid article:nth-child(4n) { margin-right: 0; }
+  .guide-side { border-left: 0; border-top: 1px solid var(--line); }
+  .guide-header { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .guide-header span:last-child { text-align: left; }
+}

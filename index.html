@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Персональный шестимесячный роадмап по пентестингу и Python">
+  <meta name="theme-color" content="#111512">
+  <title>REDPATH — роадмап пентестера</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="upgrade.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">//</span>RED<span>PATH</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="#roadmap">Маршрут</a><a href="#rhythm">Ритм</a><a href="#resources">Ресурсы</a>
+    </nav>
+    <span class="status"><i></i> локальное сохранение</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Персональный трек · 24 недели · редакция 2026</div>
+        <h1>Пентестинг.<br><span>От основ до отчёта.</span></h1>
+        <p class="lede">Не список тем, а пошаговая программа для базового уровня Python: что изучить, что сделать руками, что сдать и как проверить, что ты действительно понял материал.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#roadmap">Открыть маршрут <b>↓</b></a>
+          <button class="text-btn" id="exportTop">Экспорт прогресса</button>
+        </div>
+      </div>
+      <div class="hero-stats" aria-label="Параметры маршрута">
+        <div><strong>06</strong><span>месяцев</span></div>
+        <div><strong>08–10</strong><span>часов / нед.</span></div>
+        <div><strong>96</strong><span>контрольных задач</span></div>
+        <div><strong id="heroPythonCount">12</strong><span>Python-практик</span></div>
+      </div>
+    </section>
+
+    <section class="rules" aria-label="Правила безопасной практики">
+      <span class="rules-icon">!</span>
+      <p><strong>Главное правило:</strong> тестируй только свои системы, учебные лаборатории или цели с явным письменным разрешением. Сохраняй границы работ и доказательства разрешения.</p>
+    </section>
+
+    <section class="coverage" id="coverage">
+      <div class="coverage-head">
+        <div><span class="eyebrow">Проверено по стандартам 2025–2026</span><h2>Что покрывает программа</h2></div>
+        <p><strong>Честная цель за 216±24 часа:</strong> уверенная база junior-пентестера и способность самостоятельно провести учебный web/internal assessment. Не экспертность во всех доменах — для неё нужны годы и специализация.</p>
+      </div>
+      <div class="coverage-grid">
+        <article><span>01</span><strong>IT-фундамент</strong><p>Linux, Windows, TCP/IP, DNS, HTTP/TLS, виртуализация, логи и диагностика.</p></article>
+        <article><span>02</span><strong>Web & API</strong><p>OWASP Top 10:2025, WSTG, ASVS 5.0, API Top 10, Burp и современная авторизация.</p></article>
+        <article><span>03</span><strong>Уязвимости</strong><p>SQLi, XSS, SSRF, XXE, SSTI, traversal, upload, auth, access control и business logic.</p></article>
+        <article><span>04</span><strong>Сети и хосты</strong><p>Enumeration, common services, vulnerability triage, пароли, shells и privilege escalation.</p></article>
+        <article><span>05</span><strong>Active Directory</strong><p>Kerberos, NTLM, LDAP, ACL, BloodHound-мышление, lateral movement и pivoting.</p></article>
+        <article><span>06</span><strong>Современная среда</strong><p>JWT/OAuth, GraphQL, контейнеры, облачные IAM-концепции, supply chain и LLM attack surface.</p></article>
+        <article><span>07</span><strong>Работа пентестера</strong><p>Scope, evidence, risk, cleanup, retest, отчёты, Python-автоматизация и коммуникация.</p></article>
+      </div>
+      <div class="scope-note"><b>После базового трека:</b><span>mobile, wireless, reverse engineering, exploit development, thick clients и глубокий cloud pentest вынесены в специализации. Добавлять их в эти 24 недели означало бы изучить всё поверхностно.</span></div>
+    </section>
+
+    <section class="roadmap-shell" id="roadmap">
+      <aside class="sidebar">
+        <div class="sidebar-sticky">
+          <span class="section-label">Твой прогресс</span>
+          <div class="progress-number"><span id="progressPercent">0</span><sup>%</sup></div>
+          <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+          <p id="progressCopy">0 задач выполнено</p>
+          <div class="metric-grid">
+            <div><span>Готово недель</span><strong id="weeksDone">0 / 24</strong></div>
+            <div><span>Оценка практики</span><strong id="hoursDone">0 ч</strong></div>
+          </div>
+          <label class="date-field">Дата старта<input type="date" id="startDate"></label>
+          <div class="current-week" id="currentWeekBox">
+            <span>Текущая точка</span><strong>Неделя 01</strong><small>Задай дату старта или начинай сейчас</small>
+          </div>
+          <div class="sidebar-actions">
+            <button id="exportBtn">Экспорт JSON</button>
+            <label class="file-btn">Импорт JSON<input type="file" id="importFile" accept="application/json"></label>
+            <button class="danger-btn" id="resetBtn">Сбросить прогресс</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="roadmap-main">
+        <div class="roadmap-heading">
+          <div><span class="eyebrow">Пошаговый план</span><h2>24 недели практики</h2></div>
+          <p>Открой неделю и иди сверху вниз: план действий → контрольные задачи → проверка понимания → итоговый артефакт. Следующую неделю начинай только после критерия готовности.</p>
+        </div>
+
+        <div class="controls" aria-label="Фильтры дорожной карты">
+          <label class="search-wrap"><span>Поиск</span><input id="searchInput" type="search" placeholder="Например: Python, Burp, Active Directory"></label>
+          <label><span>Навык</span><select id="categoryFilter"><option value="all">Все навыки</option></select></label>
+          <label class="pending-toggle"><input type="checkbox" id="pendingOnly"><span class="switch"></span><b>Только незавершённые</b></label>
+        </div>
+        <div class="phase-tabs" id="phaseTabs" aria-label="Фильтр по этапам"></div>
+        <div id="roadmapContent" class="roadmap-content"></div>
+        <div class="empty-state" id="emptyState" hidden><strong>Ничего не найдено.</strong><span>Сбрось фильтры или измени запрос.</span></div>
+      </div>
+    </section>
+
+    <section class="rhythm-section" id="rhythm">
+      <div class="section-head"><span class="eyebrow">Рабочий ритм</span><h2>8–10 часов без выгорания</h2></div>
+      <div class="rhythm-grid">
+        <article><span>01</span><h3>Теория</h3><strong>2 часа</strong><p>Одна тема за раз. Конспектируй своими словами и отвечай: «почему это уязвимо?»</p></article>
+        <article><span>02</span><h3>Лаборатория</h3><strong>4–5 часов</strong><p>Повтори технику руками, затем реши похожую задачу без подсказок.</p></article>
+        <article><span>03</span><h3>Python</h3><strong>1–2 часа</strong><p>Автоматизируй один скучный шаг: парсинг, запросы, нормализацию или отчёт.</p></article>
+        <article><span>04</span><h3>Ретроспектива</h3><strong>1 час</strong><p>Запиши команды, ошибки, доказательства и что нужно повторить через неделю.</p></article>
+      </div>
+    </section>
+
+    <section class="resources-section" id="resources">
+      <div class="section-head"><span class="eyebrow">Опорная база</span><h2>Ресурсы без хаоса</h2><p>Короткий набор первичных источников. Они уже привязаны к неделям внутри маршрута.</p></div>
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+
+    <footer>
+      <a class="brand footer-brand" href="#top"><span class="brand-mark">//</span>RED<span>PATH</span></a>
+      <p>Практикуйся законно. Документируй всё. Автоматизируй осмысленно.</p>
+      <span>Прогресс хранится только в этом браузере.</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="syllabus.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
