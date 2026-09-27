@@ -1,0 +1,271 @@
+:root {
+  --ink: #111512;
+  --paper: #f3f0e8;
+  --paper-dark: #e8e5db;
+  --line: #c7c5bb;
+  --muted: #666b64;
+  --orange: #ff5c35;
+  --acid: #d7ff3f;
+  --white: #faf9f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lesson-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  height: 72px;
+  padding: 0 clamp(20px, 4vw, 70px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 240, 232, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.brand {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--orange);
+}
+
+.back-link {
+  color: var(--muted);
+  font: 700 11px monospace;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.back-link:hover {
+  color: var(--orange);
+}
+
+.lesson-layout {
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 280px minmax(0, 850px);
+  justify-content: center;
+}
+
+.lesson-sidebar {
+  border-right: 1px solid var(--line);
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 72px;
+  max-height: calc(100vh - 72px);
+  padding: 42px 28px;
+  overflow-y: auto;
+}
+
+.sidebar-label {
+  display: block;
+  margin-bottom: 20px;
+
+  color: var(--orange);
+  font: 700 10px monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#lessonToc {
+  display: grid;
+  gap: 4px;
+}
+
+#lessonToc a {
+  padding: 7px 0;
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+#lessonToc a:hover {
+  color: var(--ink);
+}
+
+#lessonToc a.toc-level-3 {
+  padding-left: 15px;
+  font-size: 11px;
+}
+
+.lesson-article {
+  min-width: 0;
+  padding: clamp(35px, 6vw, 80px);
+}
+
+.lesson-status {
+  padding: 18px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.lesson-status.error {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.markdown-body {
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.markdown-body h1 {
+  margin: 0 0 40px;
+  font-size: clamp(42px, 7vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+}
+
+.markdown-body h2 {
+  margin: 70px 0 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
+
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.markdown-body h3 {
+  margin: 38px 0 14px;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+}
+
+.markdown-body h4 {
+  margin: 28px 0 10px;
+  font-size: 17px;
+}
+
+.markdown-body p {
+  margin: 0 0 18px;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 0 0 22px;
+  padding-left: 24px;
+}
+
+.markdown-body li {
+  margin: 7px 0;
+}
+
+.markdown-body blockquote {
+  margin: 25px 0;
+  padding: 16px 20px;
+
+  border-left: 4px solid var(--orange);
+  background: var(--paper-dark);
+}
+
+.markdown-body code {
+  padding: 2px 6px;
+  background: #dedbd1;
+  font: 0.9em monospace;
+}
+
+.markdown-body pre {
+  margin: 24px 0;
+  padding: 20px;
+  overflow-x: auto;
+
+  background: var(--ink);
+  color: #f4f5f0;
+  border-left: 4px solid var(--acid);
+}
+
+.markdown-body pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  line-height: 1.55;
+}
+
+.markdown-body table {
+  width: 100%;
+  margin: 24px 0;
+
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-body th {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.markdown-body a {
+  color: var(--ink);
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
+}
+
+.markdown-body a:hover {
+  color: var(--orange);
+}
+
+.markdown-body hr {
+  margin: 50px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 850px) {
+  .lesson-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-sidebar {
+    display: none;
+  }
+
+  .lesson-article {
+    padding: 40px 20px 80px;
+  }
+
+  .back-link {
+    font-size: 9px;
+  }
+}

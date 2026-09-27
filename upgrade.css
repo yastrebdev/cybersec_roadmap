@@ -167,3 +167,24 @@
   .guide-header { align-items: flex-start; flex-direction: column; gap: 5px; }
   .guide-header span:last-child { text-align: left; }
 }
+
+.lesson-button {
+  display: inline-flex;
+  align-items: center;
+
+  margin: 0 0 20px;
+  padding: 13px 16px;
+
+  background: var(--ink);
+  color: var(--white);
+
+  font: 700 10px monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+}
+
+.lesson-button:hover {
+  background: var(--orange);
+  color: var(--ink);
+}

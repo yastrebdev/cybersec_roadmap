@@ -15,6 +15,10 @@ const RESOURCES = {
   docker: { label: 'Cloud-native', title: 'Docker Security Docs', desc: 'Официальная база по границам и настройкам безопасности контейнеров.', url: 'https://docs.docker.com/engine/security/' }
 };
 
+const LESSONS = {
+  1: "01-laboratoriya-i-linux-cli.md",
+};
+
 const phases = [
   {
     id: 1,
@@ -315,6 +319,17 @@ function renderRoadmap() {
             <span class="tag">${escapeHtml(task.c)}</span>
           </div>`;
         }).join('');
+        const lessonFile = LESSONS[week.week];
+        const lessonLink = lessonFile
+          ? `
+            <a
+              class="lesson-button"
+              href="lesson.html?file=${encodeURIComponent(lessonFile)}"
+            >
+              Читать подробный урок →
+            </a>
+          `
+          : "";
         const links = week.links.map(key => `<a href="${RESOURCES[key].url}" target="_blank" rel="noopener noreferrer">${escapeHtml(RESOURCES[key].title)} ↗</a>`).join('');
         const guide = WEEK_GUIDES[week.week];
         const guideHtml = guide ? `<div class="week-guide">
@@ -335,6 +350,7 @@ function renderRoadmap() {
           </summary>
           <div class="week-body">
             <div class="week-outcome"><b>Результат</b><span>${escapeHtml(week.outcome)}</span></div>
+            ${lessonLink}
             ${guideHtml}
             <div class="task-list">${taskHtml}</div>
             <div class="week-notes"><label><span>Заметки и доказательства</span><span>сохраняются автоматически</span></label><textarea data-note="${week.week}" placeholder="Команды, ошибки, ссылки на свои файлы, что повторить…">${escapeHtml(state.notes[week.week] || '')}</textarea></div>
