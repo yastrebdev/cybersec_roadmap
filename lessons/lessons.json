@@ -1,8 +1,106 @@
 [
   {
+    "id": "lab-linux-cli",
+    "kind": "lesson",
+    "collection": "Практика",
+    "order": 1,
     "week": 1,
     "title": "Лаборатория и Linux CLI",
+    "description": "Изолированная лаборатория, базовые команды Linux и первый Python-инструмент.",
     "file": "01-laboratoriya-i-linux-cli.md",
-    "phase": "Фундамент"
+    "phase": "Фундамент",
+    "duration": "8–10 часов",
+    "tags": ["Linux", "CLI", "Лаборатория"]
+  },
+  {
+    "id": "networks-01",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 1,
+    "week": 2,
+    "title": "Как работает сеть",
+    "description": "Узлы, каналы, протоколы, пакеты, инкапсуляция и модели OSI и TCP/IP.",
+    "file": "networks-01-kak-rabotaet-set.md",
+    "phase": "Фундамент",
+    "duration": "45–60 минут",
+    "tags": ["Сети", "OSI", "TCP/IP"]
+  },
+  {
+    "id": "networks-02",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 2,
+    "week": 2,
+    "title": "Ethernet, MAC и ARP",
+    "description": "Как устройства общаются внутри локальной сети и зачем нужен коммутатор.",
+    "file": "networks-02-ethernet-mac-arp.md",
+    "phase": "Фундамент",
+    "duration": "60–75 минут",
+    "tags": ["Ethernet", "MAC", "ARP"]
+  },
+  {
+    "id": "networks-03",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 3,
+    "week": 2,
+    "title": "IPv4, маски и подсети",
+    "description": "Адреса, CIDR, network и broadcast, расчёт диапазона и принадлежности к подсети.",
+    "file": "networks-03-ipv4-cidr-podseti.md",
+    "phase": "Фундамент",
+    "duration": "90 минут",
+    "tags": ["IPv4", "CIDR", "Подсети"]
+  },
+  {
+    "id": "networks-04",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 4,
+    "week": 2,
+    "title": "Маршрутизация, NAT и DHCP",
+    "description": "Как пакет выходит из подсети, откуда берётся адрес и что делает домашний роутер.",
+    "file": "networks-04-marshrutizatsiya-nat-dhcp.md",
+    "phase": "Фундамент",
+    "duration": "75–90 минут",
+    "tags": ["Routing", "NAT", "DHCP"]
+  },
+  {
+    "id": "networks-05",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 5,
+    "week": 2,
+    "title": "TCP, UDP, порты и сокеты",
+    "description": "Соединения, надёжность, handshake, состояния TCP и роль портов.",
+    "file": "networks-05-tcp-udp-porty.md",
+    "phase": "Фундамент",
+    "duration": "75–90 минут",
+    "tags": ["TCP", "UDP", "Порты"]
+  },
+  {
+    "id": "networks-06",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 6,
+    "week": 2,
+    "title": "DNS, HTTP, HTTPS и TLS",
+    "description": "Путь от доменного имени до защищённого HTTP-запроса и ответа сервера.",
+    "file": "networks-06-dns-http-tls.md",
+    "phase": "Фундамент",
+    "duration": "90 минут",
+    "tags": ["DNS", "HTTP", "TLS"]
+  },
+  {
+    "id": "networks-07",
+    "kind": "chapter",
+    "collection": "Сети с нуля",
+    "order": 7,
+    "week": 2,
+    "title": "Диагностика сети в Linux",
+    "description": "Практический алгоритм: интерфейс, маршрут, сосед, DNS, порт и приложение.",
+    "file": "networks-07-diagnostika-linux.md",
+    "phase": "Фундамент",
+    "duration": "60–90 минут",
+    "tags": ["Linux", "Диагностика", "Nmap"]
   }
 ]

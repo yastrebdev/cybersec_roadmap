@@ -66,6 +66,12 @@ body {
   color: var(--orange);
 }
 
+.lesson-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
 .lesson-layout {
   max-width: 1400px;
   margin: auto;
@@ -252,6 +258,66 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.lesson-pager {
+  margin-top: 64px;
+  padding-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.pager-link,
+.lesson-complete-button {
+  min-height: 64px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pager-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pager-link:last-child {
+  text-align: right;
+}
+
+.pager-link span {
+  color: var(--orange);
+  font: 700 9px monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pager-link strong {
+  font-size: 13px;
+}
+
+.pager-link:hover {
+  border-color: var(--ink);
+  background: var(--white);
+}
+
+.lesson-complete-button {
+  min-width: 180px;
+  cursor: pointer;
+  font: 700 10px monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lesson-complete-button:hover,
+.lesson-complete-button.is-complete {
+  border-color: var(--ink);
+  background: var(--acid);
+}
+
 @media (max-width: 850px) {
   .lesson-layout {
     grid-template-columns: 1fr;
@@ -267,5 +333,13 @@ body {
 
   .back-link {
     font-size: 9px;
+  }
+
+  .lesson-pager {
+    grid-template-columns: 1fr;
+  }
+
+  .pager-link:last-child {
+    text-align: left;
   }
 }

@@ -17,6 +17,7 @@ const RESOURCES = {
 
 const LESSONS = {
   1: "01-laboratoriya-i-linux-cli.md",
+  2: "networks-01-kak-rabotaet-set.md",
 };
 
 const phases = [

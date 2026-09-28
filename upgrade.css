@@ -188,3 +188,8 @@
   background: var(--orange);
   color: var(--ink);
 }
+
+a.text-btn {
+  color: var(--ink);
+  text-decoration: none;
+}

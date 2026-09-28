@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Учебная библиотека REDPATH по сетям, Linux, веб-безопасности и пентестингу">
+  <meta name="theme-color" content="#111512">
+  <title>Библиотека — REDPATH</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="library.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">//</span>RED<span>PATH</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="index.html#roadmap">Роадмап</a>
+      <a href="library.html" aria-current="page">Библиотека</a>
+      <a href="index.html#resources">Ресурсы</a>
+    </nav>
+    <span class="status"><i></i> локальный прогресс</span>
+  </header>
+
+  <main>
+    <section class="library-hero">
+      <div>
+        <span class="eyebrow">Учебная база REDPATH</span>
+        <h1>Библиотека.<br><span>Понимай, не зубри.</span></h1>
+        <p>Материалы разбиты на небольшие главы. Читай по порядку, выполняй проверки и отмечай завершённое — прогресс останется в браузере.</p>
+      </div>
+      <dl class="library-stats">
+        <div><dt id="chapterCount">—</dt><dd>материалов</dd></div>
+        <div><dt id="completedCount">0</dt><dd>прочитано</dd></div>
+        <div><dt id="progressPercent">0%</dt><dd>прогресс</dd></div>
+      </dl>
+    </section>
+
+    <section class="library-shell" aria-labelledby="catalogTitle">
+      <div class="library-heading">
+        <div>
+          <span class="eyebrow">Начни с «Сети с нуля»</span>
+          <h2 id="catalogTitle">Учебные материалы</h2>
+        </div>
+        <p>Каждая глава отвечает на один набор вопросов и заканчивается самопроверкой. Не нужно читать всё за один день.</p>
+      </div>
+
+      <div class="library-controls">
+        <label>
+          <span>Поиск</span>
+          <input id="librarySearch" type="search" placeholder="Например: DNS, подсети, Linux">
+        </label>
+        <label>
+          <span>Раздел</span>
+          <select id="collectionFilter">
+            <option value="all">Все разделы</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="libraryStatus" class="library-status" role="status">Загружаю библиотеку…</div>
+      <div id="libraryCatalog" class="library-catalog"></div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html"><span class="brand-mark">//</span>RED<span>PATH</span></a>
+    <p>Одна глава → одна практика → одна понятная запись в журнале.</p>
+    <span>Прогресс хранится только в этом браузере.</span>
+  </footer>
+
+  <script src="library.js"></script>
+</body>
+</html>

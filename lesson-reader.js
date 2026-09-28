@@ -1,6 +1,9 @@
 const statusElement = document.querySelector("#lessonStatus");
 const contentElement = document.querySelector("#lessonContent");
 const tocElement = document.querySelector("#lessonToc");
+const pagerElement = document.querySelector("#lessonPager");
+
+const LIBRARY_PROGRESS_KEY = "redpath-library-progress-v1";
 
 const params = new URLSearchParams(window.location.search);
 const lessonFile = params.get("file");
@@ -369,6 +372,97 @@ function renderTableOfContents(items) {
     .join("");
 }
 
+function loadLibraryProgress() {
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem(LIBRARY_PROGRESS_KEY) || "[]",
+    );
+
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
+  }
+}
+
+function renderPagerLink(material, direction) {
+  if (!material) {
+    return "<span></span>";
+  }
+
+  const label = direction === "previous"
+    ? "← Предыдущая"
+    : "Следующая →";
+
+  return `
+    <a class="pager-link" href="lesson.html?file=${encodeURIComponent(material.file)}">
+      <span>${label}</span>
+      <strong>${escapeHtml(material.title)}</strong>
+    </a>
+  `;
+}
+
+async function renderLessonNavigation() {
+  const response = await fetch("lessons/lessons.json");
+
+  if (!response.ok) {
+    return;
+  }
+
+  const catalog = await response.json();
+  const current = catalog.find(
+    (material) => material.file === lessonFile,
+  );
+
+  if (!current) {
+    return;
+  }
+
+  const collection = catalog
+    .filter(
+      (material) => material.collection === current.collection,
+    )
+    .sort((a, b) => a.order - b.order);
+  const currentIndex = collection.findIndex(
+    (material) => material.id === current.id,
+  );
+  const previous = collection[currentIndex - 1];
+  const next = collection[currentIndex + 1];
+  let progress = loadLibraryProgress();
+  const isComplete = progress.includes(current.id);
+
+  pagerElement.innerHTML = `
+    ${renderPagerLink(previous, "previous")}
+    <button class="lesson-complete-button ${isComplete ? "is-complete" : ""}" type="button">
+      ${isComplete ? "✓ Прочитано" : "Отметить прочитанным"}
+    </button>
+    ${renderPagerLink(next, "next")}
+  `;
+
+  const completeButton = pagerElement.querySelector(
+    ".lesson-complete-button",
+  );
+
+  completeButton.addEventListener("click", () => {
+    const alreadyComplete = progress.includes(current.id);
+
+    progress = alreadyComplete
+      ? progress.filter((id) => id !== current.id)
+      : [...new Set([...progress, current.id])];
+
+    localStorage.setItem(
+      LIBRARY_PROGRESS_KEY,
+      JSON.stringify(progress),
+    );
+    completeButton.classList.toggle(
+      "is-complete",
+      !alreadyComplete,
+    );
+    completeButton.textContent = alreadyComplete
+      ? "Отметить прочитанным"
+      : "✓ Прочитано";
+  });
+}
+
 async function loadLesson() {
   if (
     !lessonFile ||
@@ -398,6 +492,8 @@ async function loadLesson() {
   if (firstHeading) {
     document.title = `${firstHeading.textContent} — REDPATH`;
   }
+
+  renderLessonNavigation().catch(() => {});
 
   statusElement.remove();
 }
